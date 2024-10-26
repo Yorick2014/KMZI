@@ -122,21 +122,23 @@ namespace Affine_ciphers
 
         static void Encode(string txt, int[] keysA, int[] keysB)
         {
+            Console.WriteLine("\nЗашифрованное сообщение:");
             for (int i = 0; i < txt.Length; i++)
             {
                 Console.Write(Alphabet.ArrAlphabet[((Alphabet.Keycode(txt[i])) * keysA[i] + keysB[i]) % Alphabet.ArrAlphabet.Length]);
             }
+            Console.WriteLine("\n");
         }
 
         static void Decode(string txt, int[]keysInvA, int[] keysB)
         {
-
+            Console.WriteLine("\nРасшифрованное сообщение:");
             for (int i = 0; i < txt.Length; i++)
             {
 
                 Console.Write(Alphabet.ArrAlphabet[((Alphabet.Keycode(txt[i]) - keysB[i] + Alphabet.ArrAlphabet.Length) * keysInvA[i]) % Alphabet.ArrAlphabet.Length]);
             }
-
+            Console.WriteLine("\n");
         }
     }
 }

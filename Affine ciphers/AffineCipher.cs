@@ -50,22 +50,24 @@ namespace Affine_ciphers
 
         static void Encode(string txt, int keyA, int keyB)
         {
+            Console.WriteLine("\nЗашифрованное сообщение:");
             for (int i = 0; i < txt.Length; i++)
             {
                 //Console.Write(Alphabet.Keycode(txt[i]));
                 //Alphabet.ArrAlphabet[i] = Alphabet.ArrAlphabet[((Alphabet.Keycode(txt[i])) * keyA + keyB) % Alphabet.ArrAlphabet.Length];
                 Console.Write(Alphabet.ArrAlphabet[((Alphabet.Keycode(txt[i])) * keyA + keyB) % Alphabet.ArrAlphabet.Length]);
             }
+            Console.WriteLine("\n");
         }
 
         static void Decode(string txt, int invA, int keyB)
         {
-
+            Console.WriteLine("\nРасшифрованное сообщение:");
             for (int i = 0; i < txt.Length; i++)
             {
                 Console.Write(Alphabet.ArrAlphabet[((Alphabet.Keycode(txt[i]) - keyB + Alphabet.ArrAlphabet.Length) * invA) % Alphabet.ArrAlphabet.Length]);
             }
-
+            Console.WriteLine("\n");
         }
     }
 }
